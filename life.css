@@ -1,0 +1,198 @@
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,figure,form,fieldset,input,p,blockquote,th,td,legend {
+margin: 0;
+padding: 0;
+}
+body {
+font-family: serif;
+}
+h1 {
+font-family: serif;
+font-size: 2.0em;
+}
+h2 {
+font-family: serif;
+font-size: 1.5em;
+text-transform: uppercase;
+}
+p {
+line-height: 1.4em;
+margin-bottom: .3em;
+}
+#content {
+width: 925px;
+margin: 0 auto;
+}
+#filters {
+font-family: Arial,sans-serif;
+margin-bottom: 20px;
+}
+
+	#filters a {
+	color: #000;
+	font-size: 12px;
+	padding: 5px;
+	background: #e2e2e2;
+	cursor: pointer;
+	margin-right: 3px;
+	}
+	#filters a:last-child {
+	margin-right: 0;
+	}
+	#filters a.N2 {
+	background: #a6cee3;
+	color: #fff;
+	}
+	#filters a.N3 {
+	background: #1f78b4;
+	color: #fff;
+	}
+	#filters a.N4 {
+	background: #b2df8a;
+	color: #fff;
+	}
+	#filters a.N5 {
+	background: #33a02c;
+	color: #fff;
+	}
+	#filters a.N6 {
+	background: #fb9a99;
+	color: #fff;
+	}
+	#filters a.N7 {
+	background: #e31a1c;
+	color: #fff;
+	}
+	#filters a.N8 {
+	background: #fdbf6f;
+	color: #fff;
+	}
+	#filters a.N9 {
+	background: #ff7f00;
+	color: #fff;
+	}
+	#filters a.N10 {
+	background: #cab2d6;
+	color: #fff;
+	}
+	#filters a.N11 {
+	background: #6a3d9a;
+	color: #fff;
+	}
+	#filters a.N12 {
+	background: #ffff99;
+	color: #fff;
+	}
+
+#vis {
+min-height: 550px;
+}
+#blurb {
+height: 60px;
+border-top: 1px solid #e2e2e2;
+padding-top: 20px;
+}
+
+path {
+	stroke: #e2e2e2;
+	stroke-width: 0.5;
+	fill: none;
+	opacity: 0.7;
+}
+	path[interior] {
+	opacity: 1;
+	stroke: #ddd;
+	stroke-width: 1;
+	}
+	path.current,
+	path.highlight.current {
+	stroke: #000;
+	stroke-width: 1.7;
+	}
+	.N2.highlight {
+	stroke: #a6cee3;
+	}
+	.N3.highlight {
+	stroke: #1f78b4;
+	}
+	.N4.highlight {
+	stroke: #b2df8a;
+	}
+	.N5.highlight {
+	stroke: #33a02c;
+	}
+	.N6.highlight {
+	stroke: #fb9a99;
+	}
+	.N7.highlight {
+	stroke: #e31a1c;
+	}
+	.N8.highlight {
+	stroke: #fdbf6f;
+	}
+	.N9.highlight {
+	stroke: #ff7f00;
+	}
+	.N10.highlight {
+	stroke: #cab2d6;
+	}
+	.N11.highlight {
+	stroke: #6a3d9a;
+	}
+	.N12.highlight {
+	stroke: #ffff99;
+	}
+	.highlight {
+	stroke-width: 1px;
+	}
+line {
+stroke: black;
+}
+text {
+font-family: Helvetica,Arial,sans-serif;
+font-size: 11px;
+}
+.axis {
+stroke-width: 0.8;
+stroke: #000;
+}
+.xTicks,.yTicks {
+stroke-width: 0.6;
+stroke: #000;
+}
+#cite {
+font-size: 0.8em;
+text-align: right;
+margin-top: 10px;
+padding-bottom: 20px;
+}
+#cite a {
+background: #e2e2e2;
+text-decoration: none;
+color: #821122;
+}
+
+.col {
+	width: 33%;
+	float: left;
+	height: auto;
+	padding-top: 10px;
+}
+
+.slider {
+	width: 80%;
+}
+.slider_amount {
+	border: 0;
+	font-weight: bold;
+}
+
+
+.mean {
+	stroke-width: 0.7px;
+	color: #000;
+}
+.std {
+	stroke-width: 0.7px;
+	color: #000;
+	stroke-dasharray: 3,3;
+}

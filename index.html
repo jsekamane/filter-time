@@ -1,0 +1,110 @@
+<!-- Inspired by Nathan Yau's Life Expectancy visualisation: http://projects.flowingdata.com/life-expectancy/ -->
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Filter time-series</title>
+	<link rel="stylesheet" type="text/css" href="life.css"/>
+	<link rel="stylesheet" href="http://code.jquery.com/ui/1.9.0/themes/base/jquery-ui.css" />
+	<script type="text/javascript" src="js/jquery-1.4.4.min.js"></script>
+	<script src="http://code.jquery.com/ui/1.9.0/jquery-ui.js"></script>
+	<script type="text/javascript" src="js/d3.js"></script>
+	<script type="text/javascript" src="js/d3.csv.js"></script>
+	<script type="text/javascript" src="js/d3.slider.js"></script>
+	<script type="text/javascript" src="js/math.min.js"></script>
+</head>
+<body>
+	<div id="main-wrapper">
+		<div id="content">
+			<h1>Filter time-series</h1>
+			<p><strong>URL setup:</strong> Add the file name, and the range of the y-axis e.g.: <code>[url]?file=[csv file]&startY=[lower bound]&endY=[upper bound]</code></p>
+			<p>Current file: <span class="file"></span>. <a href="#" id="normalise" onclick="normalise(); return false;"><strong>Normalise</strong></a> (so mean of the second half is at center of the y-axis)</p>
+			<div class="col col1">
+				<p>
+				  <label>N:</label>
+				</p>
+				<div id="filters">
+					<a id="N2">2</a>
+					<a id="N3">3</a>
+					<a id="N4">4</a>
+					<a id="N5">5</a>
+					<a id="N6">6</a>
+					<a id="N7">7</a>
+					<a id="N8">8</a>
+					<a id="N9">9</a>
+					<a id="N10">10</a>
+					<a id="N11">11</a>
+					<a id="N12">12</a>
+				</div>
+			</div>
+			<div class="col col2">
+				<p>
+				  <label>&mu;:</label>
+				  <input type="text" id="mu_amount" class="slider_amount" readonly value="0 - 1.5">
+				</p>
+				<div id="mu" class="slider">
+				  <script>
+				    $(function() {
+				    	$( "#mu" ).slider({
+						    range: true,
+						    min: 0,
+							step: 0.01,
+						    max: 1.5,
+						    values: [0,1.5],
+						    slide: function( event, ui ) {
+								$("#mu_amount").val( "" + ui.values[ 0 ] + " - " + ui.values[ 1 ] );
+								window.muRange = ui.values;
+								showRange();
+					    	}
+						});
+				    });
+				  </script>
+				</div>
+			</div>
+			<div class="col col3">
+				<p>
+				  <label>n<sub>l</sub>/n<sub>r</sub>:</label>
+				  <input type="text" id="n_ratio_amount" class="slider_amount" readonly value="1 - 2">
+				</p>
+				<div id="n_ratio" class="slider">
+				  <script>
+				    $(function() {
+						$( "#n_ratio" ).slider({
+						    range: true,
+						    min: 1,
+							step: 0.01,
+						    max: 2,
+						    values: [1,2],
+						    slide: function( event, ui ) {
+								$("#n_ratio_amount").val( "" + ui.values[ 0 ] + " - " + ui.values[ 1 ] );
+								window.n_ratioRange = ui.values;
+								showRange();
+					    	}
+						});
+				    });
+				  </script>
+				</div>
+			</div>
+			
+			<div id="blurb">
+				<div id="default-blurb">
+					<div class='col'>N: </div><div class='col'>&mu;: </div><div class='col'>n<sub>l</sub>/n<sub>r</sub>: </div>
+				</div>
+				<div id="blurb-content"></div>
+			</div>
+			<div id="vis"></div>
+		</div> 
+	</div> 
+	<script type="text/javascript" src="life.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+		    $('#filters a').click(function() {
+		        var countryId = $(this).attr("id");
+		        $(this).toggleClass(countryId);
+		        showRegion(countryId);
+		    });
+			$('.file').text(window.file);
+		});
+
+	</script>
+</body>
+</html>
